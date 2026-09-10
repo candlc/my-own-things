@@ -1,0 +1,15 @@
+# 北京时间。在云服务器 crontab 里设:
+# TZ=Asia/Shanghai
+# PATH 含 tracker，例如 /home/you/.local/bin
+# TRACKER_HOME=/opt/shixiang/data
+
+TZ=Asia/Shanghai
+TRACKER_HOME=/opt/shixiang/data
+
+# 三拍前先收 drop 里的短自述；beat 命令自己也会 pull
+25 9 * * * /usr/bin/env tracker pull --quiet
+30 9 * * * /opt/shixiang/deploy/deliver-beat.sh morning
+55 14 * * * /usr/bin/env tracker pull --quiet
+0 15 * * * /opt/shixiang/deploy/deliver-beat.sh afternoon
+55 18 * * * /usr/bin/env tracker pull --quiet
+0 19 * * * /opt/shixiang/deploy/deliver-beat.sh recap

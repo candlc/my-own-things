@@ -1,0 +1,23 @@
+[project]
+name = "shixiang-tracker"
+version = "0.1.0"
+description = "私人事项账本：会后自述进待确认，微信点头，三拍提醒。"
+requires-python = ">=3.11"
+dependencies = ["tzdata>=2024.1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+tracker = "tracker.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

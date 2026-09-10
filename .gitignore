@@ -1,0 +1,12 @@
+data/ledger.json
+data/inbox/drop/*
+data/inbox/done/*
+!data/inbox/drop/.gitkeep
+!data/inbox/done/.gitkeep
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.env
